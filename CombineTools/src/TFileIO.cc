@@ -25,6 +25,10 @@ std::unique_ptr<TH1> GetClonedTH1(TFile* file, std::string const& path) {
   }
   std::unique_ptr<TH1> res(
       dynamic_cast<TH1*>(obj));
+  std::cout<<"Modification By Abhishek Started"<<std::endl;
+  res->Sumw2();
+  std::cout<<res->GetSumw2N()<<"\t"<<res->GetNbinsX()<<std::endl;
+  std::cout<<"Modification By Abhishek Ended"<<std::endl;
   TH1::AddDirectory(cur_status);
   if (!res) {
     gDirectory = backup_dir;
